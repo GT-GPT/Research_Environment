@@ -1,6 +1,15 @@
-from load import *
+import argparse
 import torchmetrics
 from tqdm import tqdm
+from load import *
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-f', '--descriptor_file', type=str)
+args = parser.parse_args()
+
+hparams['descriptor_fname'] = args.descriptor_file
+generate_gpt_descriptions(hparams)
+
 
 
 seed_everything(hparams['seed'])

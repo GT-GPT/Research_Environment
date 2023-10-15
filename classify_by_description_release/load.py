@@ -12,7 +12,7 @@ from torchvision.datasets import ImageNet, ImageFolder
 from imagenetv2_pytorch import ImageNetV2Dataset as ImageNetV2
 from datasets import _transform, CUBDataset
 from collections import OrderedDict
-import clip
+import clip # pip install clip으로 처리
 
 from loading_helpers import *
 
@@ -73,9 +73,9 @@ hparams['seed'] = 1
 # classes_to_load = openai_imagenet_classes
 hparams['descriptor_fname'] = None
 
-IMAGENET_DIR = '../dataset/ImageNet/' # REPLACE THIS WITH YOUR OWN PATH
-IMAGENETV2_DIR = '../dataset/ImageNetV2/' # REPLACE THIS WITH YOUR OWN PATH
-CUB_DIR = '../dataset/CUB-200-2011/' # REPLACE THIS WITH YOUR OWN PATH
+IMAGENET_DIR = '../../dataset/ImageNet/' # REPLACE THIS WITH YOUR OWN PATH
+IMAGENETV2_DIR = '../../dataset/ImageNetV2/' # REPLACE THIS WITH YOUR OWN PATH
+CUB_DIR = '../../dataset/CUB-200-2011/' # REPLACE THIS WITH YOUR OWN PATH
 
 # PyTorch datasets
 tfms = _transform(hparams['image_size'])
@@ -109,15 +109,16 @@ elif hparams['dataset'] == 'cub':
 
 
 #hparams['descriptor_fname'] = './descriptors/' + hparams['descriptor_fname']
-hparams['descriptor_fname'] = './descriptors/' + 'imagenet_object_3_simple'  
+#hparams['descriptor_fname'] = './descriptors/' + 'imagenet_object_1_complex'  
 
 print("Creating descriptors...")
-
-gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load)
-label_to_classname = list(gpt_descriptions.keys())
-
-
-n_classes = len(list(gpt_descriptions.keys()))
+label_to_classname = []
+gpt_descriptions = dict()
+n_classes = 0
+def generate_gpt_descriptions(hparams):
+    gpt_descriptions, unmodify_dict = load_gpt_descriptions(hparams, classes_to_load)
+    label_to_classname = list(gpt_descriptions.keys())
+    n_classes = len(list(gpt_descriptions.keys()))
 
 def compute_description_encodings(model):
     description_encodings = OrderedDict()
@@ -202,7 +203,7 @@ def show_from_indices(indices, images, labels=None, predictions=None, prediction
                     print_descriptor_similarity(image_description_similarity, index, predicted_label2, predicted_label_name2, "CLIP")
             print("\n")
 
-def print_descriptor_similarity(image_description_similarity, index, label, label_name, label_type="provided"):
+def print_descriptor_similarity(image_description_similarity, gpt_descriptions, index, label, label_name, label_type="provided"):
     # print(f"Total similarity to {label_name} ({label_type} label) descriptors: {aggregate_similarity(image_description_similarity[label][index].unsqueeze(0)).item()}")
     print(f"Total similarity to {label_name} ({label_type} label) descriptors:")
     print(f"Average:\t\t{100.*aggregate_similarity(image_description_similarity[label][index].unsqueeze(0)).item()}")
@@ -212,7 +213,7 @@ def print_descriptor_similarity(image_description_similarity, index, label, labe
         # print("\t" + f"matched \"{k}\" with score: {v}")
         print(f"{k}\t{100.*v}")
         
-def print_max_descriptor_similarity(image_description_similarity, index, label, label_name):
+def print_max_descriptor_similarity(image_description_similarity, gpt_descriptions, index, label, label_name):
     max_similarity, argmax = image_description_similarity[label][index].max(dim=0)
     label_descriptors = gpt_descriptions[label_name]
     print(f"I saw a {label_name} because I saw {unmodify_dict[label_name][label_descriptors[argmax.item()]]} with score: {max_similarity.item()}")
