@@ -1,0 +1,108 @@
+Creating descriptors...
+
+Example description for class tench: "A photo of tench. Tench also have a large, rounded head with a protruding lower jaw. They have two barbels on their chin, which are used to detect food in murky waters.."
+
+Loading model...
+Encoding descriptions...
+Evaluating...
+tensor(1.5430, device='cuda:0', dtype=torch.float16)
+tensor(1.9971, device='cuda:0', dtype=torch.float16)
+tensor(1.9902, device='cuda:0', dtype=torch.float16)
+tensor(1.9912, device='cuda:0', dtype=torch.float16)
+tensor(1.9980, device='cuda:0', dtype=torch.float16)
+tensor(1.9951, device='cuda:0', dtype=torch.float16)
+tensor(1.9922, device='cuda:0', dtype=torch.float16)
+tensor(1.9873, device='cuda:0', dtype=torch.float16)
+tensor(1.9873, device='cuda:0', dtype=torch.float16)
+tensor(1.9863, device='cuda:0', dtype=torch.float16)
+tensor(1.9844, device='cuda:0', dtype=torch.float16)
+tensor(1.9844, device='cuda:0', dtype=torch.float16)
+tensor(1.9844, device='cuda:0', dtype=torch.float16)
+
+
+tensor(1.9844, device='cuda:0', dtype=torch.float16)
+
+
+Total Description-based Top-1 Accuracy:  60.02799868583679
+Total Description-based Top-5 Accuracy:  86.50400042533875
+Creating descriptors...
+
+Example description for class tench: "A photo of tench. Tench have a large, rounded head with a protruding lower jaw and a small, upturned mouth.."
+
+Loading model...
+Encoding descriptions...
+Evaluating...
+tensor(1.6758, device='cuda:0', dtype=torch.float16)
+tensor(1.9199, device='cuda:0', dtype=torch.float16)
+tensor(1.9121, device='cuda:0', dtype=torch.float16)
+tensor(1.9131, device='cuda:0', dtype=torch.float16)
+tensor(1.9238, device='cuda:0', dtype=torch.float16)
+tensor(1.9209, device='cuda:0', dtype=torch.float16)
+tensor(1.9170, device='cuda:0', dtype=torch.float16)
+tensor(1.9131, device='cuda:0', dtype=torch.float16)
+tensor(1.9131, device='cuda:0', dtype=torch.float16)
+tensor(1.9121, device='cuda:0', dtype=torch.float16)
+tensor(1.9092, device='cuda:0', dtype=torch.float16)
+tensor(1.9102, device='cuda:0', dtype=torch.float16)
+tensor(1.9102, device='cuda:0', dtype=torch.float16)
+
+
+tensor(1.9102, device='cuda:0', dtype=torch.float16)
+
+
+Total Description-based Top-1 Accuracy:  61.295998096466064
+Total Description-based Top-5 Accuracy:  87.27800250053406
+Creating descriptors...
+
+Example description for class tench: "A photo of tench. Tench have a large, rounded head with a protruding lower jaw.."
+
+Loading model...
+Encoding descriptions...
+Evaluating...
+tensor(1.5674, device='cuda:0', dtype=torch.float16)
+tensor(1.9180, device='cuda:0', dtype=torch.float16)
+tensor(1.9141, device='cuda:0', dtype=torch.float16)
+tensor(1.9160, device='cuda:0', dtype=torch.float16)
+tensor(1.9219, device='cuda:0', dtype=torch.float16)
+tensor(1.9189, device='cuda:0', dtype=torch.float16)
+tensor(1.9170, device='cuda:0', dtype=torch.float16)
+tensor(1.9141, device='cuda:0', dtype=torch.float16)
+tensor(1.9131, device='cuda:0', dtype=torch.float16)
+tensor(1.9121, device='cuda:0', dtype=torch.float16)
+tensor(1.9092, device='cuda:0', dtype=torch.float16)
+tensor(1.9102, device='cuda:0', dtype=torch.float16)
+tensor(1.9102, device='cuda:0', dtype=torch.float16)
+
+
+tensor(1.9092, device='cuda:0', dtype=torch.float16)
+
+
+Total Description-based Top-1 Accuracy:  61.875998973846436
+Total Description-based Top-5 Accuracy:  87.65199780464172
+Creating descriptors...
+
+Example description for class tench: "A photo of tench. Tench have a large, rounded head with a protruding lower jaw.."
+
+Loading model...
+Encoding descriptions...
+Evaluating...
+tensor(1.4277, device='cuda:0', dtype=torch.float16)
+tensor(1.9189, device='cuda:0', dtype=torch.float16)
+tensor(1.9102, device='cuda:0', dtype=torch.float16)
+tensor(1.9121, device='cuda:0', dtype=torch.float16)
+tensor(1.9199, device='cuda:0', dtype=torch.float16)
+tensor(1.9170, device='cuda:0', dtype=torch.float16)
+tensor(1.9141, device='cuda:0', dtype=torch.float16)
+tensor(1.9102, device='cuda:0', dtype=torch.float16)
+tensor(1.9102, device='cuda:0', dtype=torch.float16)
+tensor(1.9082, device='cuda:0', dtype=torch.float16)
+tensor(1.9062, device='cuda:0', dtype=torch.float16)
+tensor(1.9072, device='cuda:0', dtype=torch.float16)
+tensor(1.9072, device='cuda:0', dtype=torch.float16)
+
+
+tensor(1.9062, device='cuda:0', dtype=torch.float16)
+
+
+Total Description-based Top-1 Accuracy:  62.14200258255005
+Total Description-based Top-5 Accuracy:  87.89399862289429

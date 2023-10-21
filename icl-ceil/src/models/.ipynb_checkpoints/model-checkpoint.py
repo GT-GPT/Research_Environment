@@ -35,8 +35,6 @@ def ppl_generate(input_texts, model, tokenizer, choices_list, device=None):
     for choices in choices_list:
         filled_texts = []
         for text, choice in zip(input_texts, choices):
-            
-            print(choice)
             filled_texts.append(text+choice)
         loss_list.append(_evaluate_loss(filled_texts, model, tokenizer, device))
     lm_loss_list = np.array(loss_list)

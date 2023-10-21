@@ -2,6 +2,7 @@ import numpy as np
 from src.dataset_readers.base_dsr import BaseDatasetReader
 from src.utils.tokenizer_util import get_tokenizer
 import logging
+import random
 logger = logging.getLogger(__name__)
 
 
@@ -22,6 +23,19 @@ class InferenceDatasetReader(BaseDatasetReader):
         if 'ctxs' in entry:
             ctx = [self.index_reader[i] for i in entry['ctxs']]
 
+            num_to_replace = int(0.3 * len(ctx))
+            indices_to_replace = random.sample(range(len(ctx)), num_to_replace)
+            replacement_mapping = {'Yes': 'No', 'No': 'Yes'}
+            
+            for i in indices_to_replace:
+                text = ctx[i]['metadata']['text']
+                words = text.split()
+                label = words[-1]
+                label = replacement_mapping[label]
+                words[-1] = label
+                ctx[i]['metadata']['text'] = ' '.join(words)
+                
+                
             ice_prompts_list = [i['metadata']['text'] for i in ctx]
             #print(ctx[0]['metadata']['text'])
             ice_lengths_list = [i['metadata']['len'] for i in ctx]
@@ -40,7 +54,6 @@ class InferenceDatasetReader(BaseDatasetReader):
         prompt = self.encoded_dataset[index]['metadata']['text']
 
         ice_prompt, trunc_ice_prompts_list = self.get_ice_prompt(entry, prompt_len)
-        
         # do not use format, as some prompts also contains {xxx} :(
         prompt = prompt.replace("{ice_prompt}", ice_prompt)
         
@@ -76,3 +89,26 @@ class InferenceDatasetReader(BaseDatasetReader):
         # logger.info(self.n_tokens_in_prompt, max_prompts)
         trunc_prompts_list = prompts_list[:max_prompts][::-1]  # more similar more close
         return trunc_prompts_list
+
+def random_noise(text, replacement_mapping):
+    words = text.split()
+    
+    # Create a list to store the indices of words to replace
+    replace_indices = []
+    
+    # Identify the indices of words to replace
+    for i, word in enumerate(words):
+        if word in replacement_mapping:
+            replace_indices.append(i)
+    
+    # Calculate the number of occurrences to replace (e.g., 30%)
+    num_to_replace = int(0.3 * len(replace_indices))
+    indices_to_replace = random.sample(replace_indices, num_to_replace)
+    print(replace_indices)
+    # Iterate through the selected indices and replace the words
+    for index in indices_to_replace:
+        words[index] = replacement_mapping[words[index]]
+        print(words[index])
+    
+    new_text = ' '.join(words)
+    return new_text

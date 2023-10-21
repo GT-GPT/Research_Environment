@@ -32,8 +32,8 @@ do
   retrieve_file=${run_dir}/retrieved.json
 
 
-
   scored_file=${run_dir}/scored.json
+
 
 
   run_name=bert-fix_ctx-shared-bs64
@@ -42,6 +42,7 @@ do
 
 
   retrieve_file=${run_dir}/train_retrieved.json
+
 
 
   pred_file=${run_dir}/pred.json

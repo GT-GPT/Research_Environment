@@ -1,0 +1,27 @@
+Creating descriptors...
+
+Example description for class tench: "tench, which is a large, upturned mouth with thick lips."
+
+Loading model...
+Encoding descriptions...
+Evaluating...
+tensor(1.6387, device='cuda:0', dtype=torch.float16)
+tensor(1.9912, device='cuda:0', dtype=torch.float16)
+tensor(1.9854, device='cuda:0', dtype=torch.float16)
+tensor(1.9893, device='cuda:0', dtype=torch.float16)
+tensor(1.9922, device='cuda:0', dtype=torch.float16)
+tensor(1.9883, device='cuda:0', dtype=torch.float16)
+tensor(1.9883, device='cuda:0', dtype=torch.float16)
+tensor(1.9863, device='cuda:0', dtype=torch.float16)
+tensor(1.9863, device='cuda:0', dtype=torch.float16)
+tensor(1.9844, device='cuda:0', dtype=torch.float16)
+tensor(1.9814, device='cuda:0', dtype=torch.float16)
+tensor(1.9814, device='cuda:0', dtype=torch.float16)
+tensor(1.9824, device='cuda:0', dtype=torch.float16)
+
+
+tensor(1.9814, device='cuda:0', dtype=torch.float16)
+
+
+Total Description-based Top-1 Accuracy:  59.08600091934204
+Total Description-based Top-5 Accuracy:  86.09600067138672

@@ -1,0 +1,13 @@
+Creating descriptors...
+
+Example description for class tench: "tench, which has  a large, rounded head."
+
+Loading model...
+Encoding descriptions...
+Evaluating...
+
+
+
+
+Total Description-based Top-1 Accuracy:  62.34999895095825
+Total Description-based Top-5 Accuracy:  88.31200003623962
