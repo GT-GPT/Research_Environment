@@ -1,4 +1,4 @@
-import os
+⁷import os
 import openai
 import json
 
@@ -8,6 +8,7 @@ from descriptor_strings import stringtolist, openai_imagenet_classes
 from templates import templates
 
 #openai.api_key = 'asdf' #FILL IN YOUR OWN HERE
+ #FILL IN YOUR OWN HERE
 
 def generate_prompt_zeroshot(category_name):
     return f"""Q: What are useful visual features for distinguishing a {category_name} in a photo?
